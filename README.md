@@ -1,7 +1,7 @@
-# AngularJS Webpack Starter
+# AngularJS Webpack Seed
 
-[![Dependency Status](https://david-dm.org/dsebastien/angularjs-webpack-starter.svg?theme=shields.io&style=flat)](https://david-dm.org/dsebastien/angularjs-webpack-starter)
-[![devDependency Status](https://david-dm.org/dsebastien/angularjs-webpack-starter/dev-status.svg?theme=shields.io&style=flat)](https://david-dm.org/dsebastien/angularjs-webpack-starter#info=devDependencies)
+[![Dependency Status](https://david-dm.org/christophercr/angularjs-webpack-seed.svg?theme=shields.io&style=flat)](https://david-dm.org/christophercr/angularjs-webpack-seed)
+[![devDependency Status](https://david-dm.org/christophercr/angularjs-webpack-seed/dev-status.svg?theme=shields.io&style=flat)](https://david-dm.org/christophercr/angularjs-webpack-seed#info=devDependencies)
 [![License](https://img.shields.io/cocoapods/l/AFNetworking.svg)](LICENSE.MD)
 
 ## About
