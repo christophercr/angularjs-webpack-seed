@@ -1,36 +1,27 @@
 {
-    "name": "template",
-    "description": "template",
+    "name": "angularjs-webpack-seed",
+    "version": "0.1.0",
+    "description": "Angular1 seed with Typescript and Webpack",
     "author": {
-        "email": "seb@dsebastien.net",
-        "name": "dSebastien",
-        "url": "https://www.dsebastien.net"
+        "email": "christophercr@gmail.com",
+        "name": "Christopher Cortes"
     },
-    "contributors": [
-        {
-            "email": "cedric.namotte@gmail.com",
-            "name": "nCedric",
-            "url": "https://www.kixounet.net"
-        }
+    "keywords": [
+        "web",
+        "angularjs",
+        "angular-material",
+        "rxjs",
+        "webpack",
+        "typescript"
     ],
-    "homepage": "https://github.com/dsebastien/angularjs-webpack-template",
-    "bugs": "https://github.com/dsebastien/angularjs-webpack-template/issues",
+    "homepage": "https://github.com/christophercr/angularjs-webpack-seed",
+    "bugs": "https://github.com/christophercr/angularjs-webpack-seed/issues",
     "repository": {
         "type": "git",
-        "url": "https://github.com/dsebastien/angularjs-webpack-template.git"
+        "url": "https://github.com/christophercr/angularjs-webpack-seed.git"
     },
     "private": true,
     "license": "MIT",
-    "version": "0.1.0",
-    "keywords": [
-        "web",
-        "angular",
-        "angularjs",
-        "webpack",
-        "typescript",
-        "javascript",
-        "redux"
-    ],
     "dependencies": {
         "angular": "^1.5.2",
         "angular-animate": "^1.5.2",
