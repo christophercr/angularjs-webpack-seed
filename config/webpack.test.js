@@ -63,10 +63,10 @@ module.exports = {
         // reference: http://webpack.github.io/docs/configuration.html#module-loaders
         loaders: commonConfig.module.loaders.concat([
             // Support for .ts files.
-            // reference: https://github.com/s-panferov/awesome-typescript-loader
+            // reference: https://github.com/TypeStrong/ts-loader
             {
                 test: /\.ts$/,
-                loader: "awesome-typescript",
+                loader: "ts",
                 exclude: [
                     /\.e2e\.ts$/, // exclude end-to-end tests
                 ],
@@ -88,6 +88,10 @@ module.exports = {
             },
         ],
     },
+
+    // typescript loader configuration
+    // reference: https://github.com/TypeStrong/ts-loader
+    ts: commonConfig.ts,
 
     // Add additional plugins to the compiler.
     // reference: http://webpack.github.io/docs/configuration.html#plugins
