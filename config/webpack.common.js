@@ -10,13 +10,13 @@ const autoprefixer = require("autoprefixer");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
-const ForkCheckerPlugin = require("awesome-typescript-loader").ForkCheckerPlugin;
 const WebpackSHAHash = require("webpack-sha-hash");
 
 // Metadata
 const METADATA = {
-    title: "AngularJS Webpack Starter",
-    baseUrl: "/",
+    title: "AngularJS Webpack Seed",
+    description: "AngularJS Webpack seed with Typescript",
+    baseUrl: "/"
 };
 
 /*
@@ -29,7 +29,7 @@ module.exports = {
 
     stats: {
         colors: true,
-        reasons: true,
+        reasons: true
     },
 
     // Options affecting the output of the compilation
@@ -53,7 +53,7 @@ module.exports = {
         // The filename of non-entry chunks as relative path
         // inside the output.path directory.
         // reference: http://webpack.github.io/docs/configuration.html#output-chunkfilename
-        chunkFilename: "[id].[hash].chunk.js",
+        chunkFilename: "[id].[hash].chunk.js"
     },
 
     // Options affecting the resolving of modules.
@@ -64,10 +64,10 @@ module.exports = {
         // reference: http://webpack.github.io/docs/configuration.html#resolve-extensions
         extensions: [ "", ".ts", ".js", ".json", ".css", ".scss", ".html" ],
 
-        // Add folders where modules are located (useful to avoid having to specify '../../../Foo/Bar' kind of imports
+        // Make sure that Webpack's root includes all the sources
         // reference: http://webpack.github.io/docs/configuration.html#resolve-root
         root: [
-            helpers.root("src"),
+            helpers.root("src")
         ],
         
         // Remove other default values
@@ -75,6 +75,10 @@ module.exports = {
         modulesDirectories: [
             helpers.root("node_modules")
         ],
+
+        fallback:[
+            "node_modules"
+        ]
     },
 
     // Webpack's loader loading configuration
@@ -84,8 +88,9 @@ module.exports = {
         // Where Webpack looks for loaders
         // can be customized so that Webpack can find loaders in other locations 
         modulesDirectories: [
-            helpers.root("node_modules"),
+            helpers.root("node_modules")
         ],
+        fallback:["node_modules"],
         
         // default values kept
         extensions: ["", ".webpack-loader.js", ".web-loader.js", ".loader.js", ".js"],
@@ -109,7 +114,7 @@ module.exports = {
                 test: /\.ts$/,
                 loader: "tslint",
                 exclude: [
-                    helpers.root("node_modules"),
+                    helpers.root("node_modules")
                 ]
             },
 
@@ -120,9 +125,9 @@ module.exports = {
                 test: /\.js$/,
                 loader: "source-map",
                 exclude: [
-                    helpers.root("node_modules/rxjs"),
-                ],
-            },
+                    helpers.root("node_modules/rxjs")
+                ]
+            }
         ],
 
         // An array of automatically applied loaders.
@@ -135,7 +140,7 @@ module.exports = {
             // Support for *.json files
             {
                 test: /\.json$/,
-                loader: "json",
+                loader: "json"
             },
 
             // Support for CSS as raw text
@@ -175,17 +180,12 @@ module.exports = {
         // Post processors
         postLoaders: [
             // ...
-        ],
+        ]
     },
 
     // Add additional plugins to the compiler.
     // reference: http://webpack.github.io/docs/configuration.html#plugins
     plugins: [
-        // Plugin: ForkCheckerPlugin
-        // Description: Do type checking in a separate process, so webpack don't need to wait.
-        // reference: https://github.com/s-panferov/awesome-typescript-loader#forkchecker-boolean-defaultfalse
-        new ForkCheckerPlugin(),
-        
         // Plugin: NoErrorsPlugin
         // Description: Only emit files when there are no errors.
         // reference: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
@@ -224,14 +224,41 @@ module.exports = {
             chunksSortMode: helpers.packageSort([
                 "polyfills",
                 "vendor",
-                "main",
-            ]),
+                "main"
+            ])
         }),
 
         // Plugin: WebpackSHAHash
         // Description: Generate SHA content hashes
-        new WebpackSHAHash(),
+        new WebpackSHAHash()
     ],
+
+    // typescript loader configuration
+    // reference: https://github.com/TypeStrong/ts-loader
+    ts: {
+        // Allows you to specify a custom configuration file
+        // here we make sure that the tsconfig.json file of the project itself is used and not another one
+        configFileName: "tsconfig.json",
+
+        // If you want to speed up compilation significantly you can set this flag.
+        // However, many of the benefits you get from static type checking between different dependencies in your application will be lost. 
+        // You should also set the isolatedModules TypeScript option if you plan to ever make use of this.
+        transpileOnly: false,
+
+        // If true, no console.log messages will be emitted. Note that most error messages are emitted via webpack which is not affected by this flag
+        silent: false,
+
+        ignoreDiagnostics: [],
+
+        // Allows use of TypeScript compilers other than the official one. Should be set to the NPM name of the compiler
+        //compiler: "typescript",
+
+        // Allows overriding TypeScript options. Should be specified in the same format as you would do for the compilerOptions property in tsconfig.json.
+        compilerOptions: {}
+
+        // Advanced option to force files to go through different instances of the TypeScript compiler. Can be used to force segregation between different parts of your code.
+        //instance: "..."
+    },
 
     // TSLint configuration
     // Static analysis linter for TypeScript advanced options configuration
@@ -248,7 +275,7 @@ module.exports = {
         // set failOnHint to true
         failOnHint: false,
 
-        resourcePath: helpers.root("src"),
+        resourcePath: helpers.root("src")
 
         // can be used to customize the path to the directory containing formatter (optional)
         //formattersDirectory: helpers.root("node_modules/tslint-loader/formatters/"),
@@ -263,7 +290,7 @@ module.exports = {
         crypto: "empty",
         module: false,
         clearImmediate: false,
-        setImmediate: false,
+        setImmediate: false
     },
 
     // PostCSS plugins configuration
