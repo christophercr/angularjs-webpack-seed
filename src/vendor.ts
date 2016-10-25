@@ -5,22 +5,20 @@
 // AngularJS
 import "angular";
 
+// Angular UI Router
 import "angular-ui-router";
+
+// Angular translate
 import "angular-translate";
 import "angular-translate-loader-static-files";
 
 // Angular Material
 import "angular-material";
 
-// JSData
-import "js-data";
-
-// Immutable
-import "immutable";
-import "immutable-angular";
-
 // RxJS
-import "rxjs";
+import "rxjs/Observable";
+import "rxjs/Subscription";
+import "rxjs/Subject";
 
 // RxJS operators
 import "./rxjs-operators";
