@@ -1,12 +1,11 @@
 "use strict";
 
-import IModule = angular.IModule;
-import ILogService = angular.ILogService;
+import {IModule, ILogService} from "angular";
 
 // the import of every element of this module should be included below
 
-export const commonsModule:IModule = angular.module("commonsModule", []);
+export const commonsModule: IModule = angular.module("commonsModule", []);
 
-commonsModule.run(["$log", (logger:ILogService) => {
+commonsModule.run(["$log", (logger: ILogService) => {
     logger.debug("Commons module loaded...");
 },]);

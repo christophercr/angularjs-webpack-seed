@@ -1,6 +1,6 @@
 "use strict";
 
-import IModule = ng.IModule;
+import {IModule} from "angular";
 
 /**
  * Simple registry of modules.
@@ -11,13 +11,13 @@ export class ModuleRegistry {
      * The modules.
      * @type {Array}
      */
-    private modules:Array<IModule>;
+    private modules: Array<IModule>;
 
     /**
      * The module names.
      * @type {Array}
      */
-    private moduleNames:Array<string>;
+    private moduleNames: Array<string>;
 
     /**
      * Create a module registry.
@@ -30,7 +30,7 @@ export class ModuleRegistry {
     /**
      * Clear the registry.
      */
-    public clear():void {
+    public clear(): void {
         this.modules = [];
         this.moduleNames = [];
     }
@@ -39,7 +39,7 @@ export class ModuleRegistry {
      * Register a module
      * @param module the module to register
      */
-    public registerModule(module:IModule):void {
+    public registerModule(module: IModule): void {
         this.modules.push(module);
         this.moduleNames.push(module.name);
     }
@@ -48,7 +48,7 @@ export class ModuleRegistry {
      * Get the registered modules.
      * @returns {Array<IModule>}
      */
-    public getModules():Array<IModule> {
+    public getModules(): Array<IModule> {
         return this.modules;
     }
 
@@ -56,7 +56,7 @@ export class ModuleRegistry {
      * Get the names of the registered modules.
      * @returns {Array<string>}
      */
-    public getModuleNames():Array<string> {
+    public getModuleNames(): Array<string> {
         return this.moduleNames;
     }
 }

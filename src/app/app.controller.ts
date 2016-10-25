@@ -2,7 +2,7 @@
 
 import {AbstractController} from "./modules/commons/controllers/abstract.controller";
 import IStateService = angular.ui.IStateService;
-import ILogService = angular.ILogService;
+import {ILogService} from "angular";
 
 // controller
 export class AppController extends AbstractController {
