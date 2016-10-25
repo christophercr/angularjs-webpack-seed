@@ -1,8 +1,8 @@
 "use strict";
 
 // Polyfills
-require("core-js/es6");
-require("core-js/es7");
+import "core-js/es6";
+import "core-js/es7";
 
 if (DEVELOPMENT) {
     // Ensure that we get detailed stack traces during development (useful with node & Webpack)
