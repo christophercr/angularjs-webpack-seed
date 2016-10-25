@@ -27,7 +27,6 @@ export class App {
         const modules: any = [];
         modules.push("ui.router");
         modules.push("pascalprecht.translate");
-        modules.push("immutable-angular");
         modules.push("ngMaterial");
 
         moduleRegistry.getModuleNames().forEach((entry: string) => {
