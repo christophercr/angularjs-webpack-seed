@@ -21,7 +21,7 @@ homeModule.config(["$stateProvider", ($stateProvider: IStateProvider) => {
             views: {
                 "home@": {
                     controller: HomeController,
-                    controllerAs: "vm",
+                    controllerAs: "$ctrl",
                     template: homeTemplate,
                 },
             },

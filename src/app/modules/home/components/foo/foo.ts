@@ -8,6 +8,6 @@ let fooTemplate: any = require("./foo.template.html");
 
 homeModule.component("foo", {
     controller: FooController,
-    controllerAs: "vm",
+    controllerAs: "$ctrl",
     template: fooTemplate,
 });
