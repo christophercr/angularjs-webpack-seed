@@ -11,7 +11,6 @@ A Webpack Starter kit featuring:
   * the future of JavaScript available now
 * [Redux](https://github.com/rackt/redux)
   * one-way data flow for shared state management
-* [Immutable.js](https://facebook.github.io/immutable-js/)
 * [RxJS](https://github.com/Reactive-Extensions/RxJS)
 * [Lodash](https://lodash.com/)
 * [PostCSS](https://github.com/postcss/postcss)
@@ -33,7 +32,6 @@ A Webpack Starter kit featuring:
 * [moment](http://momentjs.com/)
 * [Sinon.JS](http://sinonjs.org/)
 * [SASS](http://sass-lang.com/)
-* [JSData](http://www.js-data.io/)
 
 A complete build based on Webpack/npm scripts and tons of features:
 * hot module replacement (HMR)
