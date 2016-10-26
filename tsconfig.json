@@ -2,15 +2,18 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "declaration": false,
+        "declaration": true,
         "noImplicitAny": true,
         "suppressImplicitAnyIndexErrors": true,
         "suppressExcessPropertyErrors": true,
+        "strictNullChecks": false,
         "removeComments": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "noEmitOnError": false,
         "noEmitHelpers": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
         "preserveConstEnums": true,
         "inlineSources": false,
         "pretty": true,
@@ -24,11 +27,14 @@
             "./config"
         ],
         "paths": {
-            
+
         }
     },
     "exclude": [
+        ".tmp",
+        "tmp",
         "node_modules",
+        "dist",
         "typings/main",
         "typings/main.d.ts",
         "typings/browser",
@@ -47,9 +53,5 @@
         "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
         "placeOpenBraceOnNewLineForFunctions": false,
         "placeOpenBraceOnNewLineForControlBlocks": false
-    },
-    "awesomeTypescriptLoaderOptions": {
-        "resolveGlobs": true,
-        "forkChecker": true
     }
 }
