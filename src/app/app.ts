@@ -37,7 +37,6 @@ export class App {
 
         appModule.component("app", {
             controller: AppController,
-            controllerAs: "vm",
             template: appTemplate,
         });
 
