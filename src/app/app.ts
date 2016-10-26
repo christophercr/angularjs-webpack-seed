@@ -16,8 +16,8 @@ const moduleRegistry: ModuleRegistry = require("./modules/modules").moduleRegist
 // application controller
 import {AppController} from "./app.controller";
 
-// Pre-loading the html templates into the Angular's $templateCache
-const templateAppUrl: string = require("./app.template.html");
+// load raw html template
+const appTemplate: string = require("./app.template.html");
 
 /**
  * The application
@@ -38,7 +38,7 @@ export class App {
         appModule.component("app", {
             controller: AppController,
             controllerAs: "vm",
-            templateUrl: templateAppUrl,
+            template: appTemplate,
         });
 
         appModule.config(["$urlRouterProvider", "$stateProvider", "$translateProvider", "$locationProvider",

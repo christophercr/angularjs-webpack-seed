@@ -164,10 +164,10 @@ module.exports = {
             // Support for .html with ngTemplate loader to use the Angular's $templateCache service
             {
                 test: /\.html$/,
-                loaders: [ "ngtemplate", "html" ],
+                loaders: [ "html" ],
                 exclude: [
-                    helpers.root("src/index.html"),
-                ],
+                    helpers.root("src/index.html")
+                ]
             },
 
             // Sinon.js
