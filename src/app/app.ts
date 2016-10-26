@@ -13,11 +13,11 @@ import ITranslateProvider = angular.translate.ITranslateProvider;
 import {ModuleRegistry} from "./modules/commons/modules/module.registry";
 const moduleRegistry: ModuleRegistry = require("./modules/modules").moduleRegistry;
 
-// application controller
-import {AppController} from "./app.controller";
+// application component
+import {appComponent} from "./app.component";
 
-// load raw html template
-const appTemplate: string = require("./app.template.html");
+export const appModuleName: string = "appModule";
+export const appComponentName: string = "app";
 
 /**
  * The application
@@ -33,12 +33,9 @@ export class App {
             modules.push(entry);
         });
 
-        const appModule: IModule = angular.module("appModule", modules);
+        const appModule: IModule = angular.module(appModuleName, modules);
 
-        appModule.component("app", {
-            controller: AppController,
-            template: appTemplate,
-        });
+        appModule.component(appComponentName, appComponent);
 
         appModule.config(["$urlRouterProvider", "$stateProvider", "$translateProvider", "$locationProvider",
             ($urlRouterProvider: IUrlRouterProvider, $stateProvider: IStateProvider, $translateProvider: ITranslateProvider,
