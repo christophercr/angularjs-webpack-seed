@@ -35,9 +35,8 @@
         "tmp",
         "node_modules",
         "dist",
-        "typings/main",
-        "typings/main.d.ts",
-        "typings/browser",
+        "typings/globals",
+        "typings/modules",
         "src/typings/custom"
     ],
     "formatCodeOptions": {
