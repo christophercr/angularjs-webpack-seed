@@ -6,20 +6,46 @@
             "check-constructor"
         ],
         "member-ordering": [
-            true,
-            "variables-before-functions"
+            false,
+            {
+                "order": "fields-first"
+            }
         ],
         "no-any": false,
+        "no-inferrable-types": false,
         "no-internal-module": true,
+        "no-namespace": [
+            true,
+            "allow-declarations"
+        ],
+        "no-reference": true,
         "no-var-requires": false,
         "typedef": [
             true,
             "call-signature",
+            "index-signature",
             "parameter",
             "arrow-parameter",
             "property-declaration",
             "variable-declaration",
             "member-variable-declaration"
+        ],
+        "typedef-whitespace": [
+            false,
+            {
+                "call-signature": "nospace",
+                "index-signature": "nospace",
+                "parameter": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            },
+            {
+                "call-signature": "nospace",
+                "index-signature": "nospace",
+                "parameter": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            }
         ],
         "ban": [
             true,
@@ -49,14 +75,18 @@
         "no-duplicate-variable": true,
         "no-empty": true,
         "no-eval": true,
+        "no-invalid-this": true,
         "no-null-keyword": true,
         "no-shadowed-variable": true,
         "no-string-literal": false,
         "no-switch-case-fall-through": true,
         "no-unreachable": true,
+        "no-unsafe-finally": true,
         "no-unused-expression": true,
+        "no-unused-new": true,
         "no-unused-variable": [
-            true, {
+            true,
+            {
                 "ignore-pattern": "[$](onInit|onDestroy|onChanges|postLink)"
             }
         ],
@@ -64,25 +94,30 @@
         "no-var-keyword": true,
         "radix": true,
         "switch-default": true,
-        "triple-equals": [
-            true
-        ],
+        "triple-equals": true,
+        "use-isnan": true,
         "use-strict": [
             true,
             "check-module"
         ],
         "eofline": true,
         "indent": [
+            false,
+            "tabs"
+        ],
+        "linebreak-style": [
             true,
-            "spaces"
+            "LF"
         ],
         "max-line-length": [
             true,
             140
         ],
+        "no-default-export": true,
+        "no-mergeable-namespace": true,
         "no-require-imports": false,
         "no-trailing-whitespace": true,
-        "object-literal-sort-keys": true,
+        "object-literal-sort-keys": false,
         "trailing-comma": [
             false,
             {
@@ -96,6 +131,7 @@
             "arguments",
             "statements"
         ],
+        "arrow-parens": true,
         "class-name": true,
         "comment-format": [
             false,
@@ -106,9 +142,14 @@
             "never-prefix"
         ],
         "jsdoc-format": true,
+        "new-parens": true,
         "no-angle-bracket-type-assertion": true,
         "no-consecutive-blank-lines": true,
         "no-constructor-vars": true,
+        "object-literal-key-quotes": [
+            true,
+            "as-needed"
+        ],
         "one-line": [
             true,
             "check-catch",
@@ -117,6 +158,7 @@
             "check-open-brace",
             "check-whitespace"
         ],
+        "one-variable-per-declaration": true,
         "quotemark": [
             true,
             "double",
