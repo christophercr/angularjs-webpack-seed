@@ -9,9 +9,9 @@ import {IState, IStateProvider, IUrlRouterProvider, IStateService} from "angular
 // i18n
 import ITranslateProvider = angular.translate.ITranslateProvider;
 
-// load all modules
-import {ModuleRegistry} from "./modules/commons/modules/module.registry";
-const moduleRegistry: ModuleRegistry = require("./modules/modules").moduleRegistry;
+// modules
+import {commonsModule} from "./modules/commons/module";
+import {homeModule} from "./modules/home/module";
 
 // application component
 import {appComponent} from "./app.component";
@@ -23,21 +23,21 @@ export const appComponentName: string = "app";
  * The application
  */
 export class App {
-    public static bootstrap(): void {
-        const modules: any = [];
-        modules.push("ui.router");
-        modules.push("pascalprecht.translate");
-        modules.push("ngMaterial");
+    public appModule: IModule;
 
-        moduleRegistry.getModuleNames().forEach((entry: string) => {
-            modules.push(entry);
-        });
+    public constructor() {
 
-        const appModule: IModule = angular.module(appModuleName, modules);
+        this.appModule = angular.module(appModuleName, [
+            "ui.router",
+            "pascalprecht.translate",
+            "ngMaterial",
+            commonsModule.name,
+            homeModule.name
+        ]);
 
-        appModule.component(appComponentName, appComponent);
+        this.appModule.component(appComponentName, appComponent);
 
-        appModule.config(["$urlRouterProvider", "$stateProvider", "$translateProvider", "$locationProvider",
+        this.appModule.config(["$urlRouterProvider", "$stateProvider", "$translateProvider", "$locationProvider",
             ($urlRouterProvider: IUrlRouterProvider, $stateProvider: IStateProvider, $translateProvider: ITranslateProvider,
              $locationProvider: ILocationProvider): any => {
                 $urlRouterProvider.otherwise("/home");
@@ -68,8 +68,8 @@ export class App {
                 $locationProvider.html5Mode(true);
             },]);
 
-        appModule.run(["$state", "$log", ($state: IStateService, logger: ILogService) => {
-            logger.debug("Bootstrapped the application...");
+        this.appModule.run(["$state", "$log", ($state: IStateService, logger: ILogService) => {
+            logger.debug("Application bootstrapped");
 
             logger.debug("Registered UI-router states: ");
             let index: number;
@@ -81,9 +81,17 @@ export class App {
                 logger.debug(`State : ${stateName} [parent: ${stateParent}, url: ${stateUrl}]`);
             }
         },]);
+    }
 
-        angular.bootstrap(document, ["appModule"], {
-            strictDi: true,
+    /**
+     * Method responsible for actually bootstrapping the app.
+     * It can initialize Angular or any other framework for example, initialize routing, etc
+     */
+    public bootstrapApp(): void {
+        // Enabling "StrictDI" mode to enforce explicit annotations in injectable functions
+        // https://docs.angularjs.org/guide/production#disabling-debug-data
+        angular.bootstrap(document, [this.appModule.name], {
+            strictDi: true
         });
     }
 }

@@ -1,45 +1,56 @@
 "use strict";
 
-/*
- * App Component
- * our top level component that holds all of our components
- */
+// import the App Component, the top level component that holds all of our components
 import {App} from "./app/app";
-
-if(PRODUCTION) {
-    // We only import the application styles here for the production build
-    // In development, main-styles.ts takes care of that (separate bundle)
-    require("./app/css/main.scss");
-}
 
 /*
  * Bootstrap our Angular app with a top level component `App` and inject
  * our Services and Providers into Angular's dependency injection system
  */
-export function main():void {
-    console.log("Bootstrapping the App");
-    App.bootstrap();
-}
+class Main {
+    public main(): void {
+        console.log("Bootstrapping the App...");
+        const app: App = new App();
+        app.bootstrapApp();
 
-function bootstrapDomReady():void {
-    // bootstrap after document is ready
-    document.addEventListener("DOMContentLoaded", main);
-}
-
-if(DEVELOPMENT) {
-    console.log("Development environment");
-
-    // activate Hot Module Replacement (HMR)
-    if(HMR) {
-        if(document.readyState === "complete") {
-            main();
-        }else {
-            bootstrapDomReady();
+        if (PRODUCTION) {
+            // We only import the application styles here for the production build
+            // In development, main-styles.ts takes care of that (separate bundle)
+            require("./main-styles");
         }
-        module.hot.accept();
-    }else {
-        bootstrapDomReady();
     }
-}else {
-    bootstrapDomReady();
+
+    /**
+     * Call the main function once the DOM has loaded
+     */
+    private bootstrapDomReady(): void {
+        document.addEventListener("DOMContentLoaded", this.main);
+    }
+
+    public bootstrap(): void {
+        /**
+         * Bootstrap after document is ready
+         * @returns {void}
+         */
+        if (DEVELOPMENT) {
+            console.log("Development environment");
+
+            // activate Hot Module Replacement (HMR)
+            if (HMR) {
+                if (document.readyState === "complete") {
+                    this.main();
+                } else {
+                    this.bootstrapDomReady();
+                }
+                module.hot.accept();
+            } else {
+                this.bootstrapDomReady();
+            }
+        } else {
+            this.bootstrapDomReady();
+        }
+    }
 }
+
+const main: Main = new Main();
+main.bootstrap();

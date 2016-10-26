@@ -1,17 +1,16 @@
-"use strict";
-
-import IStateProvider = angular.ui.IStateProvider;
 import {IModule, ILogService} from "angular";
-
+import {IStateProvider} from "angular-ui-router";
 import {HomeController} from "./home.controller";
 
-export const homeModule: IModule = angular.module("homeModule", []);
-
 // import all elements of the module
-import "./components/foo/foo";
+import {fooComponent} from "./components/foo/foo";
 
 // load raw html template
 const homeTemplate: any = require("./home.template.html");
+
+export const homeModule: IModule = angular.module("homeModule", []);
+
+homeModule.component("foo", fooComponent);
 
 homeModule.config(["$stateProvider", ($stateProvider: IStateProvider) => {
     $stateProvider

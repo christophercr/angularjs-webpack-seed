@@ -1,13 +1,12 @@
 "use strict";
 
-import {homeModule} from "../../home";
 import {FooController} from "./foo.controller";
+import {IComponentOptions} from "angular";
 
 // load raw html template
 let fooTemplate: any = require("./foo.template.html");
 
-homeModule.component("foo", {
+export const fooComponent: IComponentOptions = {
     controller: FooController,
-    controllerAs: "$ctrl",
-    template: fooTemplate,
-});
+    template: fooTemplate
+};

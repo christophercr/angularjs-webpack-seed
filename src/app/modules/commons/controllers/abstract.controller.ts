@@ -1,9 +1,9 @@
 "use strict";
 
 import IStateService = angular.ui.IStateService;
-import {ILogService} from "angular";
+import {IController, ILogService} from "angular";
 
-export abstract class AbstractController {
+export abstract class AbstractController implements IController {
     private logger: ILogService;
     private $state: IStateService;
 
