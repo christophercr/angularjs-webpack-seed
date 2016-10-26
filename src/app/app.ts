@@ -83,7 +83,7 @@ export class App {
         },]);
 
         angular.bootstrap(document, ["appModule"], {
-            "strictDi": true,
+            strictDi: true,
         });
     }
 }
