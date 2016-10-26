@@ -68,8 +68,8 @@ Check out the issues/labels & milestones to get an idea of what's next. For exis
 First of all, make sure that you have installed NodeJS & npm: https://nodejs.org/en/.
 
 Two approaches:
-* clone this repository: `git clone https://github.com/dsebastien/angularjs-webpack-starter.git`
-* download a zip: https://github.com/dsebastien/angularjs-webpack-starter/archive/master.zip
+* clone this repository: `git clone https://github.com/christophercr/angularjs-webpack-seed.git`
+* download a zip: https://github.com/christophercr/angularjs-webpack-seed/archive/master.zip
 
 Now you can download all the necessary dependencies using the setup script: `npm run setup`.
 
@@ -161,7 +161,7 @@ It is configured via `superstatic.json` to enable support for push-state (HTML 5
 * npm publish
 
 ## TODO
-See the [project issues](https://github.com/dsebastien/angularjs-webpack-starter/issues/)
+See the [project issues](https://github.com/christophercr/angularjs-webpack-seed/issues/)
 
 ## License
 This project and all associated source code is licensed under the terms of the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
